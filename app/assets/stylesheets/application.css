@@ -8,3 +8,66 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Meow Gallery - Common Design */
+
+:root {
+  --meow-cream: #fff0db;
+  --meow-background: #fffaf5;
+  --meow-accent: #c58b59;
+  --meow-brown: #49372c;
+}
+
+/* 全体のデザイン */
+body {
+  background-color: var(--meow-background);
+  color: var(--meow-brown);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ヘッダー */
+.navbar {
+  background-color: var(--meow-cream);
+  box-shadow: 0 2px 8px rgba(73, 55, 44, 0.08);
+}
+
+.navbar-brand {
+  color: var(--meow-brown);
+}
+
+.navbar .nav-link {
+  color: var(--meow-brown);
+}
+
+.navbar .nav-link:hover {
+  color: #8b5e34;
+}
+
+/* 共通ボタン */
+.btn-meow {
+  background-color: var(--meow-accent);
+  color: #212121;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+}
+
+.btn-meow:hover {
+  background-color: #ad7446;
+  color: #212121;
+}
+
+/* 共通カード */
+.meow-card {
+  background-color: #ffffff;
+  border: 1px solid #f0e3d5;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(73, 55, 44, 0.08);
+}
+
+/* フッター */
+footer {
+  background-color: var(--meow-cream);
+  color: var(--meow-brown);
+}

@@ -1,0 +1,59 @@
+<div class="container py-5">
+  <div class="meow-card mx-auto" style="max-width: 600px;">
+
+    <div class="text-center mb-4">
+      <% if @user == Current.user %>
+        <h2 class="fw-bold mb-4">マイページ 🐾</h2>
+      <% else %>
+        <h2 class="fw-bold mb-4">プロフィール 🐾</h2>
+      <% end %>
+
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image,
+                      width: 150,
+                      height: 150,
+                      class: "rounded-circle shadow-sm",
+                      style: "object-fit: cover;",
+                      alt: "プロフィール画像" %>
+      <% else %>
+        <%= image_tag "no_image.png",
+                      width: 150,
+                      height: 150,
+                      class: "rounded-circle shadow-sm",
+                      style: "object-fit: cover;",
+                      alt: "デフォルトプロフィール画像" %>
+      <% end %>
+
+      <h3 class="fw-bold mt-3">
+        <%= @user.name %>
+      </h3>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="mb-3">
+      <p class="small text-muted mb-1">ユーザー名</p>
+      <p class="fw-bold"><%= @user.name %></p>
+    </div>
+
+    <% if @user == Current.user %>
+      <div class="mb-4">
+        <p class="small text-muted mb-1">メールアドレス</p>
+        <p class="text-break"><%= @user.email_address %></p>
+      </div>
+
+      <div class="d-grid">
+        <%= link_to "プロフィール編集",
+                    edit_user_path(@user),
+                    class: "btn btn-meow" %>
+      </div>
+    <% end %>
+
+    <div class="text-center mt-3">
+      <%= link_to "ホームに戻る",
+                  root_path,
+                  class: "btn btn-outline-secondary w-100" %>
+    </div>
+
+  </div>
+</div>

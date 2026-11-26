@@ -1,0 +1,40 @@
+<div class="container py-5">
+  <div class="meow-card text-center py-5 mx-auto"
+       style="max-width: 900px;">
+
+    <div class="display-1 mb-3">🐱</div>
+
+    <h1 class="fw-bold mb-3">
+      Welcome to Meow Gallery
+    </h1>
+
+    <p class="lead mb-3">
+      Share your favorite cat moments with everyone!
+    </p>
+
+    <p class="mb-4">
+      猫好きのための写真共有コミュニティ
+    </p>
+
+    <% if authenticated? %>
+      <%= link_to "マイページへ",
+                  user_path(Current.user),
+                  class: "btn btn-meow" %>
+    <% else %>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <%= link_to "ログイン",
+                    new_session_path,
+                    class: "btn btn-meow" %>
+
+        <%= link_to "新規会員登録",
+                    signup_path,
+                    class: "btn btn-outline-secondary" %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
+
+
+
+ 

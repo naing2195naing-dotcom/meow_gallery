@@ -1,0 +1,47 @@
+
+<nav class="navbar navbar-expand-lg" style="background-color: #fff0db;">
+  <div class="container">
+    <%= link_to "🐾 Meow Gallery", root_path, class: "navbar-brand fw-bold" %>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="メニューを開く">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item">
+          <%= link_to "ホーム", root_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: "nav-link" %>
+        </li>
+
+        <% if authenticated? %>
+          <li class="nav-item">
+            <%= link_to "マイページ", user_path(Current.user), class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= button_to "ログアウト", logout_path,
+                          method: :delete,
+                          class: "btn btn-outline-secondary ms-lg-2" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "ログイン", new_session_path, class: "nav-link" %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "新規会員登録", signup_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

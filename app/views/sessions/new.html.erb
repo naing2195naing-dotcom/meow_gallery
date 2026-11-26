@@ -1,0 +1,80 @@
+
+<div class="container py-5">
+  <div class="meow-card mx-auto" style="max-width: 450px;">
+
+    <div class="text-center mb-4">
+      <div class="display-4 mb-2">🐱</div>
+      <h2 class="fw-bold">ログイン</h2>
+      <p class="text-muted">
+        Meow Gallery へようこそ！
+      </p>
+    </div>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <% if flash[:notice] %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <%= form_with url: session_path do |form| %>
+
+      <div class="mb-3">
+        <%= form.label :email_address,
+                       "メールアドレス",
+                       class: "form-label fw-bold" %>
+
+        <%= form.email_field :email_address,
+                             required: true,
+                             autofocus: true,
+                             autocomplete: "username",
+                             placeholder: "example@email.com",
+                             value: params[:email_address],
+                             class: "form-control" %>
+      </div>
+
+      <div class="mb-4">
+        <%= form.label :password,
+                       "パスワード",
+                       class: "form-label fw-bold" %>
+
+        <%= form.password_field :password,
+                                required: true,
+                                autocomplete: "current-password",
+                                placeholder: "パスワードを入力",
+                                maxlength: 72,
+                                class: "form-control" %>
+      </div>
+
+      <div class="d-grid">
+        <%= form.submit "ログイン",
+                        class: "btn btn-meow" %>
+      </div>
+
+    <% end %>
+
+    <div class="text-center mt-3">
+      <%= link_to "パスワードをお忘れの方",
+                  new_password_path,
+                  class: "small text-muted" %>
+    </div>
+
+    <hr class="my-4">
+
+    <div class="text-center">
+      <p class="small">
+        アカウントをお持ちでない方
+      </p>
+
+      <%= link_to "新規会員登録",
+                  signup_path,
+                  class: "btn btn-outline-secondary w-100" %>
+    </div>
+
+  </div>
+</div>
